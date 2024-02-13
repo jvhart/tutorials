@@ -1,0 +1,35 @@
+
+https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+AIRFLOW_VERSION=2.8.1
+
+# Extract the version of Python you have installed. If you're currently using a Python version that is not supported by Airflow, you may want to set this manually.
+# See above for supported versions.
+PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
+
+CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+# For example this would install 2.8.1 with python 3.8: https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-3.8.txt
+
+pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+
+sudo pip install "apache-airflow==2.8.1" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.8.1/constraints-3.9.txt"
+
+airflow standalone
+localhost:8080
+
+wsl --install -d Ubuntu
+
+https://phoenixnap.com/kb/how-to-install-python-3-ubuntu
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+cd /tmp
+wget https://www.python.org/ftp/python/3.12.1/Python-3.12.1.tgz
+tar -xf Python-3.12.1.tgz
+
+./configure --enable-optimizations
+
+sudo make install
+
+python3 --version
+
+
+

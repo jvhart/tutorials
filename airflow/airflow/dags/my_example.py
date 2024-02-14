@@ -8,7 +8,7 @@ import pendulum
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': pendulum.today('UTC').add(days=-4),
+    'start_date': pendulum.today('UTC').add(days=1),
     'email': ['jarodvhart@gmail.com'],
     'email_on_failure': True,
     'email_on_retry': False,

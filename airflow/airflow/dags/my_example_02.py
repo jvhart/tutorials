@@ -25,33 +25,33 @@ dag = DAG(
 
 task_1 = BashOperator(
     task_id='create_fernet_token',
-    bash_command='python3 airflow/scripts/example_02/create_fernet_token.py',
+    bash_command='cd ~/tutorials/airflow && python3 airflow/scripts/example_02/create_fernet_token.py',
     dag=dag,
 )
 
 task_2 = BashOperator(
     task_id='create_files',
-    bash_command='python3 airflow/scripts/example_02/create_files.py',
+    bash_command='cd ~/tutorials/airflow && python3 airflow/scripts/example_02/create_files.py',
     dag=dag,
 )
 
 task_3 = BashOperator(
     task_id='encrypt_messages',
-    bash_command='python3 airflow/scripts/example_02/encrypt_messages.py',
+    bash_command='cd ~/tutorials/airflow && python3 airflow/scripts/example_02/encrypt_messages.py',
     depends_on_past=True,
     dag=dag,
 )
 
 task_4 = BashOperator(
     task_id='validate_decryption',
-    bash_command='python3 airflow/scripts/example_02/validate_decryption.py',
+    bash_command='cd ~/tutorials/airflow && python3 airflow/scripts/example_02/validate_decryption.py',
     depends_on_past=True,
     dag=dag,
 )
 
 task_5 = BashOperator(
     task_id='cleanup_files',
-    bash_command='python3 airflow/scripts/example_02/cleanup_files.py',
+    bash_command='cd ~/tutorials/airflow && python3 airflow/scripts/example_02/cleanup_files.py',
     depends_on_past=True,
     dag=dag,
 )

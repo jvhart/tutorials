@@ -1,0 +1,16 @@
+
+https://docs.celeryq.dev/en/stable/userguide/application.html
+
+python -m venv venv 
+pip install django
+
+pip install django-celery-results
+
+python manage.py migrate
+python manage.py migrate django_celery_results
+
+python manage.py createcachetable
+
+set CELERY_TRACE_APP=1 celery worker -l INFO
+
+celery -A project worker -l INFO

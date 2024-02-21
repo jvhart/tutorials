@@ -1,0 +1,8 @@
+https://pytorch.org/tutorials/beginner/basics/intro.html
+
+pip install numpy 
+pip install pandas
+pip install torch
+
+???
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
